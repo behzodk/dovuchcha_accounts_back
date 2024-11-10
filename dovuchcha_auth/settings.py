@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -109,6 +110,11 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+MEDIA_URL='/media/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -148,3 +154,15 @@ CORS_ALLOW_METHODS = [
     "DELETE",
     "OPTIONS",
 ]
+LOGIN_URL = 'https://accounts.dovuchcha.uz/login'
+
+SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = [
+    "https://accounts.dovuchcha.uz",
+    "http://localhost:3000",
+]
+
+OAUTH2_PROVIDER = {
+    "PKCE_REQUIRED": False
+}
