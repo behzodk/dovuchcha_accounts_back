@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 
 class SubdomainViewSet(viewsets.ModelViewSet):
-    queryset = Subdomain.objects.exclude(status='pending').order_by('-created_at')
+    queryset = Subdomain.objects.exclude(status='pending').order_by('created_at')
     serializer_class = SubdomainSerializer
 
 
